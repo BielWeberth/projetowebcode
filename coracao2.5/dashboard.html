@@ -1,0 +1,137 @@
+<html data-lt-installed="true"><head>
+    <title>Cardiopatia em Pernambuco</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style> 
+    .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    margin: 2px;
+    padding: 15px 25px;
+    font-size: 20px;
+    color: #ffffff; /* branco */
+    background-color: #b20000; /* vermelho escuro */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #fc6c6c; /* vermelho claro */
+    transform: scale(1.1);
+}
+
+
+</style>
+</head>
+<body>
+   <div style="display: flex; flex-direction: column; justify-content: center; height: 100vh;">
+    <p>Bem-vindo à nossa página! Agradecemos o seu interesse e apoio na luta contra a cardiopatia em Pernambuco.</p>
+
+    <button id="btnAfetados">Afetados</button>
+    <button id="btnDoacoes">Doações</button>
+    <button id="btnIdade">Pacientes e Médicos</button>
+
+    <div id="chartContainer"><canvas style="display: block; box-sizing: border-box; height: 300px; width: 709px;" width="1063" height="450"></canvas></div>
+</div>
+
+<script>
+    var chartContainer = document.getElementById('chartContainer');
+    var btnAfetados = document.getElementById('btnAfetados');
+    var btnDoacoes = document.getElementById('btnDoacoes');
+    var btnIdade = document.getElementById('btnIdade');
+
+    var chart;
+
+    function createChart(ctx, label, data, backgroundColor, borderColor) {
+        if (chart) {
+            chart.destroy();
+        }
+
+        chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Pernambuco'],
+                datasets: [{
+                    label: label,
+                    data: data,
+                    backgroundColor: backgroundColor,
+                    borderColor: borderColor,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 2000 // duração da animação em milissegundos
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    function createPieChart(ctx, label, data, backgroundColor, borderColor) {
+        if (chart) {
+            chart.destroy();
+        }
+
+        chart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Médico', 'Paciente'],
+                datasets: [{
+                    label: label,
+                    data: data,
+                    backgroundColor: backgroundColor,
+                    borderColor: borderColor,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 2000 // duração da animação em milissegundos
+                },
+                responsive:true,
+                maintainAspectRatio:false
+            }
+        });
+    }
+
+btnAfetados.addEventListener('click', function() {
+     var canvas = document.createElement('canvas');
+     canvas.style.height = '8.33px'; // ajuste a altura aqui
+     canvas.style.width = '20.83px'; // ajuste a largura aqui
+     chartContainer.innerHTML = '';
+     chartContainer.appendChild(canvas);
+     createChart(canvas.getContext('2d'), 'Afetados', [345], ['rgba(255 ,99 ,132 ,0.2)'], ['rgba(255 ,99 ,132 ,1)']);
+});
+
+btnDoacoes.addEventListener('click', function() {
+     var canvas = document.createElement('canvas');
+     canvas.style.height = '8.33px'; // ajuste a altura aqui
+     canvas.style.width = '20.83px'; // ajuste a largura aqui
+     chartContainer.innerHTML = '';
+     chartContainer.appendChild(canvas);
+     createChart(canvas.getContext('2d'), 'Dinheiro de Doações', [5000], ['rgba(75, 192, 192, 0.2)'], ['rgba(75, 192, 192, 1)']);
+});
+
+   btnIdade.addEventListener('click', function() {
+             var canvas = document.createElement('canvas');
+             chartContainer.innerHTML = '';
+             chartContainer.appendChild(canvas);
+             createPieChart(canvas.getContext('2d'), 'Pacientes', [15, 20], ['rgba(255,99 ,132 ,0.2)', 'rgba(54 ,162 ,235 ,0.2)', 'rgba(255 ,206 ,86 ,0.2)', 'rgba(75 ,192 ,192 ,0.2)', 'rgba(153 ,102 ,255 ,0.2)'], ['rgba(255 ,99 ,132 ,1)', 'rgba(54 ,162 ,235 ,1)', 'rgba(255 ,206 ,86 ,1)', 'rgba(75 ,192 ,192 ,1)', 'rgba(153 ,102 ,255 ,1)']);
+        });
+</script>
+
+
+
+</body></html>

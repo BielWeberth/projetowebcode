@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/conta.css" />
+    <link rel="icon" href="img/logocoracao2.png" type="image/x-icon">
+    <title>Minha Conta</title>
+    <style>
+        table{
+            border: 0.5em solid rgb(219, 82, 82);
+        }
+        tr{
+            border: 0.5em solid rgb(219, 82, 82 );
+        }
+        td{
+            border: 0.5em solid rgb(219, 82, 82);
+        }
+
+        #formulario{
+          position: absolute;/*deixar no meio*/
+            top: 50%;/*deixar no meio*/
+            left: 50%;/*deixar no meio*/
+            transform: translate(-50%,-50%);
+        }
+        body{
+      background-image: url(img/fundo.jpg);
+   }
+
+   #horario{
+    width: 20em;
+   }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <a class="logo" href="index.html"><img src="img/logo2.png" alt="" style="height: 4.6em;" > </a>
+        <div class="mobile-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="login.html">Login//Registre-se</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+      </nav>
+    </header>
+    <form id="formulario" action="consulta.php" method="post">
+      <input type="text" name="nome" id="nome">
+      <table>
+      <tr><td><label for="marcar">Marque sua consulta conosco:</label></td>
+      <td><label for="data">Insira a data:</label></td>
+      <td><label for="sintoma">Informe o seu Sintoma:</label></td></tr>
+      <tr><td><select id="horario" name="horario">
+          <option value="3:00 PM">3:00 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="5:00 PM">5:00 PM</option>
+          <option value="6:00 PM">6:00 PM</option>
+      </select></td>
+
+      <td><select id="data" name="data">
+          <option value="10/11/2023">10/11/2023</option>
+          <option value="13/11/2023">13/11/2023</option>
+          <option value="14/11/2023">14/11/2023</option>
+          <option value="15/11/2023">15/11/2023</option>
+      </select></td>
+
+
+     <td> <select id="sintoma" name="sintoma">
+          <option value="Cor de pele cinzenta ou azul">Cor de pele cinzenta ou azul</option>
+          <option value="Falta de ar">Falta de ar</option>
+          <option value="Batimentos cardíacos irregulares">Batimentos cardíacos irregulares</option>
+          <option value="Fadiga">Fadiga</option>
+      </select></td></tr>
+    </table>
+
+      <input type="submit" value="Enviar">
+
+    </form>
+
+</body>
+</html>

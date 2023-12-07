@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="icon" href="img/logocoracao2.png" type="image/x-icon">
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(to right, rgb(245, 102, 102), rgba(248, 67, 54, 0.911));
+        }
+
+        .box{
+            position: absolute;/*deixar no meio*/
+            top: 50%;/*deixar no meio*/
+            left: 50%;/*deixar no meio*/
+            transform: translate(-50%,-50%); /*deixar no meio*/
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1.3em;
+            border-radius: 1.3em;
+            width: 20%;
+            color: white;
+        }
+
+        legend{
+            border: 1px solid;
+            padding: 1em;
+            text-align: center;
+            /*background-color: white;*/
+            border-radius: 1em;
+            
+        }
+
+        .inputBox{
+            position: relative;
+        }
+
+        .inputUser{
+            background: none;
+            border: none;
+            border-bottom: 1px solid white;
+            outline: none;
+            color: white;
+            font-size: 1em;
+            width: 100%;
+            letter-spacing: 2px;
+        }
+
+        .labelinput{ /*Nomes em cima das opções, nome etc*/
+            position: absolute; 
+            top: 0px;
+            left: 0px;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .inputUser:focus ~ .labelinput,/*animação ao clicar*/
+        .inputUser:valid ~ .labelinput {  
+            top: -1.5em;
+            font-size: 0.8em;
+            color: rgb(238, 113, 113);
+
+            
+        }
+        #submit{
+            background-image: linear-gradient(to right,rgb(224, 108, 108),rgb(240, 44, 44));
+            width: 100%;
+            border: none;
+            padding: 1.3em;
+            color: white;
+            font-size: 0.9em;
+            cursor: pointer;
+            border-radius: 0.8em;
+        }
+        #submit:hover{
+            background-image: linear-gradient(to right,rgb(219, 112, 112),rgb(240, 19, 19));
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form action="cadastro.php" method="post">
+            <fieldset>
+                <legend><b>Fórmulario de Usuário</b></legend>
+                <br>
+                <div class="inputBox">
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label class="labelinput" for="nome">Nome Completo</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                    <input type="text" name="email" id="email" class="inputUser" required>
+                    <label class="labelinput" for="email">Digite seu Email</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                    <input type="text" name="cpf" id="cpf" class="inputUser" required> 
+                    <label class="labelinput" for="cpf">Digite seu CPF</label>
+            </div>
+            <br><br>
+            <div class="inputBox">
+                    <input type="text" name="senha" id="senha" class="inputUser" required>
+                    <label class="labelinput" for="senha">Digite sua Senha</label>
+            </div>
+            <p>
+                Gênero:
+            </p>
+            <input type="radio" id="masculino" name="genero" value="Masculino">
+            <label for="masculino">Masculino</label>
+            <input type="radio" id="feminino" name="genero" value="Feminino">
+            <label for="feminino">Feminino</label>
+            <input type="radio" id="outro" name="genero" value="Outro">
+            <label for="outro">Outro</label>
+            <div class="inputBox">
+                <br><br>
+                <label for="data_nascimento"><b>Data de Nascimento:</b></label>
+                <br> <br>
+                <input type="date" name="data_nascimento" id="data_nascimento" class="inputUser" required>
+                <p> 
+                    Ocupação
+                </p>
+                <input type="radio" id="medico" name="ocupacao" value="medico">
+                <label for="medico">Médico</label>
+                <input type="radio" id="paciente" name="ocupacao" value="paciente">
+                <label for="paciente">Paciente</label>
+        </div>
+        <br>
+        <input type="submit" name="submit" id="submit">
+        
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
